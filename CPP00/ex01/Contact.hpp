@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:20:43 by feralves          #+#    #+#             */
-/*   Updated: 2023/08/25 20:38:45 by feralves         ###   ########.fr       */
+/*   Updated: 2023/08/26 15:50:01 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define CONTACT_HPP
 
 # include <iostream>
+# include <iomanip>
+# include <stdlib.h>
 
 # define TRUE 1
 # define FALSE 0
@@ -37,7 +39,8 @@ class Contact
 		std::string	getSecret();
 		void		keepSecret(std::string secret);
 		std::string	getPhone();
-		void		keepPhone(std::string number);
+		int			keepPhone(std::string number);
+		int			contactValue;
 		bool		isValid;
 };
 

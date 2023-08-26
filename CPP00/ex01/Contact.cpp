@@ -6,14 +6,14 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:20:39 by feralves          #+#    #+#             */
-/*   Updated: 2023/08/25 20:46:06 by feralves         ###   ########.fr       */
+/*   Updated: 2023/08/26 15:48:14 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
 Contact::Contact(void){
-	this->isValid = FALSE;
+	isValid = FALSE;
 }
 
 Contact::~Contact(void){
@@ -22,50 +22,58 @@ Contact::~Contact(void){
 
 std::string	Contact::getFirstName(void)
 {
-	return this->firstName;
+	return firstName;
 }
 
-void	Contact::keepFirstName(std::string firstName)
+void	Contact::keepFirstName(std::string str)
 {
-	this->firstName = firstName;
+	firstName = str;
 }
 
 std::string	Contact::getLastName(void)
 {
-	return this->lastName;
+	return lastName;
 }
 
-void	Contact::keepLastName(std::string lastName)
+void	Contact::keepLastName(std::string str)
 {
-	this->lastName = lastName;
+	lastName = str;
 }
 
 std::string	Contact::getNickname(void)
 {
-	return this->nickname;
+	return nickname;
 }
 
-void	Contact::keepNickname(std::string nickname)
+void	Contact::keepNickname(std::string str)
 {
-	this->nickname = nickname;
+	nickname = str;
 }
 
 std::string	Contact::getSecret(void)
 {
-	return this->darkestSecret;
+	return darkestSecret;
 }
 
-void	Contact::keepSecret(std::string secret)
+void	Contact::keepSecret(std::string str)
 {
-	this->darkestSecret = secret;
+	darkestSecret = str;
 }
 
 std::string	Contact::getPhone(void)
 {
-	return this->phoneNumber;
+	return phoneNumber;
 }
 
-void	Contact::keepPhone(std::string number)
+int	Contact::keepPhone(std::string number)
 {
-	this->phoneNumber = number;
+	for (size_t i = 0; i < number.size(); i++) {
+		if (!isdigit(number[i]))
+		{
+			std::cout << "Invalid phone number. Should be numbers" << std::endl;
+			return (FALSE);
+		}
+	}
+	phoneNumber = number;
+	return (TRUE);
 }

@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:19:27 by feralves          #+#    #+#             */
-/*   Updated: 2023/08/25 20:44:59 by feralves         ###   ########.fr       */
+/*   Updated: 2023/08/26 15:57:53 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,18 @@
 
 void	printNewPhone(void)
 {
-	std::cout << "New phonebook, no contacts to show" << std::endl;
+	std::cout << "Hello to your new phonebook" << std::endl
+		<< "Valid commands: ADD, SEARCH or EXIT" << std::endl;
 }
 
 void	errorMessage(std::string str)
 {
-	std::cout << "Wrong input: " << str << std::endl;
-	std::cout << "You can use: ADD, SEARCH or EXIT" << std::endl;
+	std::cout << CLEAN_WINDOW
+		<< "Wrong input: '" << str << "'" << std::endl
+		<< "You can use the commands:" << std::endl
+		<< " - ADD (to add a new contact to the phonebook)" << std::endl
+		<< " - SEARCH (to show the phonebook and more infos on the contact)" << std::endl
+		<< " - EXIT (this command will empty the phonebook)" << std::endl;
 }
 
 void	byeMessage(void)
@@ -33,9 +38,11 @@ int	main(void)
 	PhoneBook	phoneBook;
 	std::string	str;
 
+	std::cout << CLEAN_WINDOW;
 	printNewPhone();
 	while (1)
 	{
+		std::cout << "Select a command:" << std::endl;
 		std::getline(std::cin, str);
 		if (str.compare("EXIT") == 0)
 			break ;
