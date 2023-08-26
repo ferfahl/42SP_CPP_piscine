@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 20:28:48 by feralves          #+#    #+#             */
-/*   Updated: 2023/08/26 15:57:04 by feralves         ###   ########.fr       */
+/*   Updated: 2023/08/26 17:34:08 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ int	PhoneBook::getNbrContact(void)
 	i = 0;
 	while (contacts[i].isValid)
 		i++;
-	return (i);
+	if (i < NBR_CONTACTS)
+		return (i);
+	else
+		return (NBR_CONTACTS);
 }
 
 void	printContact(Contact contact)
@@ -70,21 +73,29 @@ void	PhoneBook::showPhoneBook(void)
 	i = -1;
 	while (i < 0)
 	{
-		std::cout <<"Choose a contact index:" << std::endl;
+		std::cout << "Choose a contact index:" << std::endl;
 		std::getline(std::cin, line);
+		if (std::cin.eof())
+			return ;
 		for (size_t j = 0; j < line.size(); j++)
-			if (!isdigit(line[j]))
-				std::cout << "Invalid index" << std::endl;
-		else
 		{
-			i = atoi(line.c_str());
-			i--;
-			if (i < 0 || i >= getNbrContact())
-			{
+			if (j != 0)
+				break ;
+			if (!std::isdigit(line[j]))
 				std::cout << "Invalid index" << std::endl;
-				i = -1;
+			else
+			{
+				i = std::atoi(line.c_str());
+				i--;
+				if (i < 0 || i >= getNbrContact())
+				{
+					std::cout << "Invalid index" << std::endl;
+					i = -1;
+				}
 			}
 		}
 	}
+	std::cout << "----------------------------------------------" << std::endl;
 	printContact(contacts[i]);
+	std::cout << "----------------------------------------------" << std::endl;
 }

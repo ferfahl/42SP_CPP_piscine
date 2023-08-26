@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:19:27 by feralves          #+#    #+#             */
-/*   Updated: 2023/08/26 15:57:53 by feralves         ###   ########.fr       */
+/*   Updated: 2023/08/26 17:32:23 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,13 @@ int	main(void)
 	{
 		std::cout << "Select a command:" << std::endl;
 		std::getline(std::cin, str);
-		if (str.compare("EXIT") == 0)
+		if (std::cin.eof())
+			return (0);
+		else if (str == "EXIT")
 			break ;
-		else if (str.compare("ADD") == 0)
+		else if (str == "ADD")
 			phoneBook.addNewContact();
-		else if (str.compare("SEARCH") == 0)
+		else if (str == "SEARCH")
 			phoneBook.showPhoneBook();
 		else
 			errorMessage(str);

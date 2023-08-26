@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:19:42 by feralves          #+#    #+#             */
-/*   Updated: 2023/08/26 15:03:16 by feralves         ###   ########.fr       */
+/*   Updated: 2023/08/26 16:49:36 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@
 # include "Contact.hpp"
 
 # define CLEAN_WINDOW "\033[2J\033[1;1H"
+# define NBR_CONTACTS 8
 
 class PhoneBook
 {
-	Contact	contacts[8];
+	Contact	contacts[NBR_CONTACTS];
 	public:
 		PhoneBook();
 		~PhoneBook();
