@@ -1,6 +1,6 @@
 NAME	=	my_phonebook
 
-SRCS	=	PhoneBook.cpp
+SRCS	=	PhoneBook.cpp main.cpp Contact.cpp Add.cpp Search.cpp
 
 OBJ_DIR	=	obj
 OBJS	=	$(SRCS:%.cpp=$(OBJ_DIR)/%.o)
@@ -10,7 +10,7 @@ CFLAGS	=	-Wall -Wextra -Werror -std=c++98 -g
 
 VPATH	=	./
 
-HEADER	=	PhoneBook.hpp
+HEADER	=	PhoneBook.hpp Contact.hpp
 
 INCLUDE	=	-I ./ -I ./includes
 

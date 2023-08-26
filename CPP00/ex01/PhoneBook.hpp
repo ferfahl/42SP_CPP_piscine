@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:19:42 by feralves          #+#    #+#             */
-/*   Updated: 2023/08/25 19:47:39 by feralves         ###   ########.fr       */
+/*   Updated: 2023/08/25 20:44:22 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@
 
 class PhoneBook
 {
-	Contact contacts[8];
+	Contact	contacts[8];
 	public:
 		PhoneBook();
 		~PhoneBook();
-}
+		int		nbrContacts;
+		void	addNewContact();
+		void	showPhoneBook();
+};
 
-void	addNewContact(PhoneBook phoneBook);
 
 #endif

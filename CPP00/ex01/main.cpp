@@ -6,17 +6,11 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:19:27 by feralves          #+#    #+#             */
-/*   Updated: 2023/08/25 19:47:23 by feralves         ###   ########.fr       */
+/*   Updated: 2023/08/25 20:44:59 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-
-
-void	showPhoneBook(PhoneBook phoneBook)
-{
-	
-}
 
 void	printNewPhone(void)
 {
@@ -46,9 +40,9 @@ int	main(void)
 		if (str.compare("EXIT") == 0)
 			break ;
 		else if (str.compare("ADD") == 0)
-			addNewContact(phoneBook);
+			phoneBook.addNewContact();
 		else if (str.compare("SEARCH") == 0)
-			showPhoneBook(phoneBook);
+			phoneBook.showPhoneBook();
 		else
 			errorMessage(str);
 	}

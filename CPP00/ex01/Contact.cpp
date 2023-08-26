@@ -6,14 +6,14 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:20:39 by feralves          #+#    #+#             */
-/*   Updated: 2023/08/25 18:41:29 by feralves         ###   ########.fr       */
+/*   Updated: 2023/08/25 20:46:06 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
 Contact::Contact(void){
-	
+	this->isValid = FALSE;
 }
 
 Contact::~Contact(void){
@@ -60,12 +60,12 @@ void	Contact::keepSecret(std::string secret)
 	this->darkestSecret = secret;
 }
 
-std:string	Contact::getPhone(void)
+std::string	Contact::getPhone(void)
 {
 	return this->phoneNumber;
 }
 
-void	Contact::keepPhone(std:string number)
+void	Contact::keepPhone(std::string number)
 {
 	this->phoneNumber = number;
 }
