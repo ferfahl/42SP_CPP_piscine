@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 19:49:05 by feralves          #+#    #+#             */
-/*   Updated: 2023/08/28 20:23:07 by feralves         ###   ########.fr       */
+/*   Updated: 2023/08/28 20:41:27 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,9 @@
 
 # define FALSE 0
 # define TRUE 1
+
+int		createOutFile(std::string filename, std::ofstream *output);
+int		checkInput(int argc, char *argv[], std::ifstream *input);
+void	errorInput(std::string str);
 
 #endif

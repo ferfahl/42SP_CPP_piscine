@@ -1,6 +1,6 @@
 NAME	=	betterSedThanDone
 
-SRCS	=	main.cpp 
+SRCS	=	main.cpp openFiles.cpp
 
 OBJ_DIR	=	obj
 OBJS	=	$(SRCS:%.cpp=$(OBJ_DIR)/%.o)
