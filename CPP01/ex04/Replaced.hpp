@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*   Replaced.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/28 17:59:40 by feralves          #+#    #+#             */
-/*   Updated: 2023/08/28 19:27:23 by feralves         ###   ########.fr       */
+/*   Created: 2023/08/28 19:49:05 by feralves          #+#    #+#             */
+/*   Updated: 2023/08/28 20:23:07 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanB.hpp"
+#ifndef REPLACED_HPP
+# define REPLACED_HPP
 
-HumanB::HumanB(std::string name) : _name(name), _weaponB(NULL)
-{
-	return ;
-}
+# include <iostream>
+# include <fstream>
+# include <string>
 
-HumanB::~HumanB()
-{
-	return ;
-}
+# define FALSE 0
+# define TRUE 1
 
-void	HumanB::attack()
-{
-	if (_weaponB)
-		std::cout << _name << " attacks with their " << _weaponB->getType() << std::endl;
-	else
-		std::cout << _name << " attacks with their hands" << std::endl;
-}
-
-void	HumanB::setWeapon(Weapon &weapon)
-{
-	this->_weaponB = &weapon;
-}
+#endif

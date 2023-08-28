@@ -1,6 +1,6 @@
-NAME	=	violence
+NAME	=	betterSedThanDone
 
-SRCS	=	main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
+SRCS	=	main.cpp 
 
 OBJ_DIR	=	obj
 OBJS	=	$(SRCS:%.cpp=$(OBJ_DIR)/%.o)
@@ -10,7 +10,7 @@ CFLAGS	=	-Wall -Wextra -Werror -std=c++98 -g
 
 VPATH	=	./
 
-HEADER	=	HumanA.hpp HumanA.hpp Weapon.hpp
+HEADER	=	Replaced.hpp
 
 INCLUDE	=	-I ./ -I ./includes
 
