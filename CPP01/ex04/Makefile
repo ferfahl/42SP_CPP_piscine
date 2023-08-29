@@ -1,6 +1,6 @@
 NAME	=	betterSedThanDone
 
-SRCS	=	main.cpp openFiles.cpp
+SRCS	=	main.cpp openFiles.cpp replaceText.cpp
 
 OBJ_DIR	=	obj
 OBJS	=	$(SRCS:%.cpp=$(OBJ_DIR)/%.o)
@@ -10,7 +10,7 @@ CFLAGS	=	-Wall -Wextra -Werror -std=c++98 -g
 
 VPATH	=	./
 
-HEADER	=	Replaced.hpp
+HEADER	=	Sed.hpp
 
 INCLUDE	=	-I ./ -I ./includes
 

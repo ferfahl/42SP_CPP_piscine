@@ -6,11 +6,11 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 19:48:48 by feralves          #+#    #+#             */
-/*   Updated: 2023/08/28 20:38:15 by feralves         ###   ########.fr       */
+/*   Updated: 2023/08/28 21:09:07 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Replaced.hpp"
+#include "Sed.hpp"
 
 void	errorInput(std::string str)
 {
@@ -26,9 +26,9 @@ int	main(int argc, char *argv[])
 		return (1);
 	if (!createOutFile(argv[1], &outFile))
 		return (1);
-	
+	replaced(&inFile, &outFile, argv[2], argv[3]);
 	inFile.close();
 	outFile.close();
-	std::cout << "Success" <<std::endl;
+	std::cout << "Success" << std::endl;
 	return (0);
 }

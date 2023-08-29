@@ -6,12 +6,11 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 20:37:58 by feralves          #+#    #+#             */
-/*   Updated: 2023/08/28 20:41:06 by feralves         ###   ########.fr       */
+/*   Updated: 2023/08/28 21:08:08 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Replaced.hpp"
-
+#include "Sed.hpp"
 
 int	openInFile(char *fileName, std::ifstream &input)
 {
@@ -26,7 +25,7 @@ int	openInFile(char *fileName, std::ifstream &input)
 
 int	checkInput(int argc, char *argv[], std::ifstream *input)
 {
-	if (argc != 4)
+	if (argc != 4 || !strlen(argv[2]) || !strlen(argv[3]))
 	{
 		errorInput("Wrong number of arguments");
 		errorInput("Usage: ./replace filename string1 string2");
