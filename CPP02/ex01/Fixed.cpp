@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/01 15:42:24 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/06 15:38:12 by feralves         ###   ########.fr       */
+/*   Created: 2023/09/06 15:36:00 by feralves          #+#    #+#             */
+/*   Updated: 2023/09/06 17:53:02 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,27 @@ Fixed::Fixed(void) : _rawBits(0)
 	return ;
 }
 
-// copy constructor
+// copy constructor receiving copy
 Fixed::Fixed(const Fixed& copy)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
+	return ;
+}
+
+// copy constructor receiving int
+Fixed::Fixed(const int value)
+{
+	std::cout << "Int constructor called" << std::endl;
+	_rawBits = value << Fixed::_fractBits;
+	return ;
+}
+
+// copy constructor receiving float
+Fixed::Fixed(const float value)
+{
+	std::cout << "Float constructor called" << std::endl;
+	_rawBits = (int)roundf(value * (1 << Fixed::_fractBits));
 	return ;
 }
 
@@ -45,7 +61,6 @@ Fixed &Fixed::operator=( Fixed const &other )
 
 int	Fixed::getRawBits( void ) const 
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (_rawBits);
 }
 
@@ -55,4 +70,29 @@ void	Fixed::setRawBits( int const raw )
 	return ;
 }
 
+// converts the fixed-point value to a floating-point value.
+float	Fixed::toFloat( void ) const
+{
+	float	answer;
+
+	answer = (float)_rawBits / (float)(1 << _fractBits);
+	return (answer);
+}
+
+// converts the fixed-point value to an integer value
+int	Fixed::toInt( void ) const
+{
+	int	answer;
+
+	answer = _rawBits >> Fixed::_fractBits;
+	return (answer);
+}
+
 const int Fixed::_fractBits = 8;
+
+// << operator overload
+std::ostream &operator<<(std::ostream &outputFile, Fixed const &f)
+{
+	outputFile << f.toFloat();
+	return (outputFile);
+}
