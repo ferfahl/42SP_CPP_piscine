@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 16:46:54 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/06 18:00:15 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/06 20:30:29 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ int main( void )
 	std::cout << "a / d = " << a / d << std::endl;
 	Fixed e = Fixed(0);
 	std::cout << "a = " << a << " and e = " << 0 << std::endl;
-	std::cout << "a * d = " << a * e << std::endl;
-	std::cout << "a / d = " << a / e << std::endl;
+	std::cout << "a * e = " << a * e << std::endl;
+	std::cout << "a / e = " << a / e << std::endl;
 	std::cout << std::endl;
 	std::cout << "----------------------------------------------" << std::endl;
 	return (0);
