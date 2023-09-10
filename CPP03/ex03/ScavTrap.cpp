@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 17:01:04 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/10 17:52:41 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/10 19:07:36 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ ScavTrap::ScavTrap(void) : ClapTrap()
 	this->setHitPoints(100);
 	this->setEnergyPoints(50);
 	this->setAttackDamage(20);
-	std::cout << "Default constructor called, ScavTrap " << getName() << " created" << std::endl;
+	std::cout << "Default constructor called, ScavTrap " << _name << " created" << std::endl;
 	return ;
 }
 
@@ -41,7 +41,7 @@ ScavTrap::ScavTrap(ScavTrap const& copy) : ClapTrap()
 
 ScavTrap::~ScavTrap(void)
 {
-	std::cout << "Default destructor called, ScavTrap " << getName() << " is gone." << std::endl;
+	std::cout << "Default destructor called, ScavTrap " << _name << " is gone." << std::endl;
 	return ;
 }
 
@@ -84,21 +84,21 @@ void	ScavTrap::guardGate(void)
 {
 	if ((int)_energyPoints <= 0)
 	{
-		std::cout << "ScavTrap " << getName() << " is exausthed and can't enter gate keeper mode!" << std::endl;
+		std::cout << "ScavTrap " << _name << " is exausthed and can't enter gate keeper mode!" << std::endl;
 		return ;
 	}
 	if ((int)_hitPoints <= 0)
 	{
-		std::cout << "ScavTrap " << getName() << " is unable to enter gate keeper mode for lack of life!" << std::endl;
+		std::cout << "ScavTrap " << _name << " is unable to enter gate keeper mode for lack of life!" << std::endl;
 		return ;
 	}
 	setEnergyPoints(_energyPoints - 1);
 	//ScavTrap <name> attacks <target>, causing <damage> points of damage!
-	std::cout << "ScavTrap " << getName() << " enters gate keeper mode!" << std::endl;
+	std::cout << "ScavTrap " << _name << " enters gate keeper mode!" << std::endl;
 }
 std::ostream &operator<<(std::ostream &outputFile, ScavTrap const &r)
 {
-	outputFile	<< "\t" << r.getName() << std::endl
+	outputFile	<< "\t ScavTrap " << r.getName() << std::endl
 				<< "Hit points: " << (int)r.getHitPoints() << std::endl
 				<< "Energy points: " << (int)r.getEnergyPoints() << std::endl
 				<< "Attack damage: " << (int)r.getAttackDamage() << std::endl;

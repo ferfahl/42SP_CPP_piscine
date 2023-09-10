@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 17:01:04 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/10 17:52:41 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/10 17:58:30 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	ScavTrap::guardGate(void)
 }
 std::ostream &operator<<(std::ostream &outputFile, ScavTrap const &r)
 {
-	outputFile	<< "\t" << r.getName() << std::endl
+	outputFile	<< "\t ScavTrap " << r.getName() << std::endl
 				<< "Hit points: " << (int)r.getHitPoints() << std::endl
 				<< "Energy points: " << (int)r.getEnergyPoints() << std::endl
 				<< "Attack damage: " << (int)r.getAttackDamage() << std::endl;
