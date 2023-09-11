@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 19:24:42 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/10 21:15:04 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/11 14:38:35 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class WrongCat : public WrongAnimal
 		virtual	~WrongCat();
 		WrongCat &operator=(WrongCat const& copy);
 
-		virtual void	makeSound() const;
+		void	makeSound() const;
 };
 
 #endif
