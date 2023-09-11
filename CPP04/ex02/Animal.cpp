@@ -6,13 +6,13 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 19:24:06 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/10 22:38:36 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/10 23:12:57 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal() : _type("Fox")
+Animal::Animal() : _type("")
 {
 	std::cout << "Default Animal constructor called" << std::endl;
 	return ;
@@ -26,8 +26,8 @@ Animal::Animal(std::string type) : _type(type)
 
 Animal::Animal(const Animal& copy)
 {
-	*this = copy;
 	std::cout << "Copy Animal constructor called" << std::endl;
+	*this = copy;
 	return ;
 }
 
@@ -49,8 +49,3 @@ std::string	Animal::getType(void) const
 	return (_type);
 }
 
-void	Animal::makeSound(void) const
-{
-	std::cout << "Ring-ding-ding-ding-dingeringeding!" << std::endl;
-	return ;
-}

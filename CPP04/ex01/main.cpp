@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 21:47:33 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/10 23:02:15 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/10 23:06:49 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,15 @@ int main ()
 	std::cout << cat3.getType() << " is thinking: " << cat3.getIdea(13) << std::endl;
 	std::cout << std::endl;
 	delete cat;
+
 	std::cout << std::endl << "================ Dogs phrases ================" << std::endl;
 	Dog *dog = new Dog;
 	Dog dog2;
 	dog2 = *dog;
 	std::cout << dog->getType() << " is thinking: " << dog->getIdea(42) << std::endl;
 	std::cout << dog2.getType() << " is thinking: " << dog2.getIdea(13) << std::endl;
-
 	delete dog;
+	
 	std::cout << std::endl << "----------------- Default destructors:-----------------" << std::endl;
 	return 0;
 }
