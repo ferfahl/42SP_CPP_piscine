@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 19:25:07 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/10 21:03:01 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/11 11:09:48 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ Dog::~Dog()
 Dog	&Dog::operator=(const Dog& copy)
 {
 	std::cout << "Copy Dog assignation called" << std::endl;
-	*this = copy;
+	if (this != &copy)
+		this->_type = copy._type;
 	return (*this);
 }
 

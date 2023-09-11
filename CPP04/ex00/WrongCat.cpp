@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 19:24:35 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/10 21:13:06 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/11 11:10:00 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ WrongCat::WrongCat(std::string type) : WrongAnimal(type)
 WrongCat::WrongCat(const WrongCat& copy) : WrongAnimal(copy)
 {
 	std::cout << "Copy WrongCat constructor called" << std::endl;
-	*this = copy;
+	if (this != &copy)
+		*this = copy;
 	return ;
 }
 
@@ -40,7 +41,8 @@ WrongCat::~WrongCat()
 WrongCat	&WrongCat::operator=(const WrongCat& copy)
 {
 	std::cout << "Copy WrongCat assignation called" << std::endl;
-	*this = copy;
+	if (this != &copy)
+		this->_type = copy._type;
 	return (*this);
 }
 

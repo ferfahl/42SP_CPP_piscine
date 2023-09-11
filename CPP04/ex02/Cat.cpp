@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 19:24:35 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/10 23:15:32 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/11 11:24:46 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ Cat::Cat(const Cat& copy) : Animal(copy)
 {
 	std::cout << "Copy Cat constructor called" << std::endl;
 	*this = copy;
-	// this->_catBrain = new Brain();
 	return ;
 }
 

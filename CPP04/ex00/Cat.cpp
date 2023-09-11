@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 19:24:35 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/10 22:37:48 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/11 11:09:44 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ Cat::~Cat()
 Cat	&Cat::operator=(const Cat& copy)
 {
 	std::cout << "Copy Cat assignation called" << std::endl;
-	*this = copy;
+	if (this != &copy)
+		this->_type = copy._type;
 	return (*this);
 }
 
