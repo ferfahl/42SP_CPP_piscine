@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:33:54 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/11 23:03:20 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/11 23:46:58 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,21 @@ void	Bureaucrat::decrementGrade(void)
 	if (this->_grade == MIN_GRADE) { throw GradeTooLowException (); }
 	this->_grade++;
 }
+
+void	Bureaucrat::signForm(Form &form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << getName() << " signed " << form.getName() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << getName() << " couldn't sign " << form.getName()
+				<< " because " << e.what() << std::endl;
+	}
+}
+
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
 	return ("Grade Too High Exception");

@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:34:28 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/11 22:04:21 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/11 23:45:50 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
+# include "Form.hpp"
 
 # define MAX_GRADE 1
 # define MIN_GRADE 150
@@ -35,6 +36,7 @@ class Bureaucrat
 		void		setGrade(int const grade);
 		void		incrementGrade();
 		void		decrementGrade();
+		void		signForm(Form &form);
 
 		class GradeTooHighException : public std::exception
 		{
