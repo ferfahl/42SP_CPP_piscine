@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:34:28 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/11 23:45:50 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/12 00:02:53 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 
 # define MAX_GRADE 1
 # define MIN_GRADE 150
+
+class Form;
 
 class Bureaucrat
 {

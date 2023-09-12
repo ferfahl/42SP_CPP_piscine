@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 23:06:23 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/11 23:34:06 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/12 00:07:45 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form
 {
 	private:
@@ -22,6 +24,7 @@ class Form
 		bool		_signed;
 		int const	_gradeSign;
 		int const	_gradeExecute;
+		int			_checkGrade(int const grade);
 	public:
 		Form();
 		Form(std::string name, int gradeSign, int gradeExecute);
@@ -37,18 +40,17 @@ class Form
 		void		setGradeExecute(int const grade);
 		void		beSigned(Bureaucrat &vorgon);
 
-		class GradeTooHighException : public std::exception
-		{
-			virtual const char* what(void) const throw();
+		class GradeTooHighException : public std::exception {
+			public:
+				virtual const char* what(void) const throw();
 		};
-
-		class GradeTooLowException : public std::exception
-		{
-			virtual const char* what(void) const throw();
+		class GradeTooLowException : public std::exception {
+			public:
+				virtual const char* what(void) const throw();
 		};
-		class AlreadySignedException: public std::exception
-		{
-			virtual const char	*what(void) const throw();
+		class AlreadySignedException: public std::exception {
+			public:
+				virtual const char	*what(void) const throw();
 		};
 };
 

@@ -1,6 +1,6 @@
 NAME	=	bureaucrat
 
-SRCS	=	main.cpp Bureaucrat.cpp
+SRCS	=	main.cpp Bureaucrat.cpp Form.cpp
 
 OBJ_DIR	=	obj
 OBJS	=	$(SRCS:%.cpp=$(OBJ_DIR)/%.o)
@@ -10,7 +10,7 @@ CFLAGS	=	-Wall -Wextra -Werror -std=c++98 -g -Wshadow -Wno-shadow
 
 VPATH	=	./
 
-HEADER	=	Bureaucrat.hpp
+HEADER	=	Bureaucrat.hpp Form.hpp
 
 INCLUDE	=	-I ./ -I ./includes
 
