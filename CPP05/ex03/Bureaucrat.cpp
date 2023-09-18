@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:33:54 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/18 17:42:39 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/18 19:18:02 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 Bureaucrat::Bureaucrat() : _name("Vogon"), _grade(75)
 {
 	std::cout << "Bureaucrat default constructor called" << std::endl;
-	//init
 	return ;
 }
 
