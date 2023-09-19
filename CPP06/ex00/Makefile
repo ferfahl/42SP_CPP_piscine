@@ -1,6 +1,6 @@
 NAME	=	converter
 
-SRCS	=	main.cpp ScalarConvertion.cpp
+SRCS	=	main.cpp ScalarConvertion.cpp ScalarConvertionTypeDef.cpp
 
 OBJ_DIR	=	obj
 OBJS	=	$(SRCS:%.cpp=$(OBJ_DIR)/%.o)
