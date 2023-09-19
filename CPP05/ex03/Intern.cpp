@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 19:12:01 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/18 20:38:33 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/18 21:12:26 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ AForm*	Intern::makeForm( std::string name, std::string target )
 	};
 
 	std::string	formTypes[FORMS] = {
-		"shrubberycreation",
-		"robotomyrequest",
-		"presidentialpardon",
+		"shrubbery creation",
+		"robotomy request",
+		"presidential pardon",
 	};
 
 	std::string	formNames[FORMS] = {

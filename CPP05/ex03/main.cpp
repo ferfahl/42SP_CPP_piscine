@@ -24,7 +24,7 @@ int	main(void)
 	Intern	coffeMaker;
 	Bureaucrat zorgon("Prostetnic Vogon Kwaltz", 1);
 	std::cout << "\n------- Presidential Pardon Form -------" << std::endl;
-	AForm *fileForm = coffeMaker.makeForm("presidentialpardon", "Trillian");
+	AForm *fileForm = coffeMaker.makeForm("presidential pardon", "Trillian");
 	if (fileForm)
 	{
 		fileForm->beSigned(zorgon);
@@ -40,7 +40,7 @@ int	main(void)
 	}
 	delete fileForm1;
 	std::cout << "\n\n--------- Robotomy Request Form --------" << std::endl;
-	AForm *fileForm2 = coffeMaker.makeForm("robotomyrequest", "Bender");
+	AForm *fileForm2 = coffeMaker.makeForm("robotomy request", "Bender");
 	if (fileForm2)
 	{
 		fileForm2->beSigned(zorgon);
