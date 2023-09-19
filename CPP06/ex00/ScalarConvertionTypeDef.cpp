@@ -6,20 +6,20 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 23:12:04 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/18 23:36:56 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/19 18:14:53 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConversion.hpp"
+#include "ScalarConvertion.hpp"
 
-static bool	ScalarConvertion::_isCharValid( std::string str )
+bool	ScalarConvertion::_isCharValid( std::string str )
 {
-	if ((str.length() == 1) && (str[0] >= 48 && str[0] <= 57))
+	if ((str.length() == 1) && (str[0] >= 33 && str[0] <= 126))
 		return (true);
 	return (false);
 }
 
-bool	isdigit(int c)
+bool	isDigitCheck(int c)
 {
 	if (c > 47 && c < 58)
 		return (true);
@@ -33,7 +33,7 @@ bool	signValid(char c)
 	return (false);
 }
 
-static bool	ScalarConvertion::_isDoubleValid( std::string str )
+bool	ScalarConvertion::_isDoubleValid( std::string str )
 {
 	size_t	i;
 	bool	oneDot;
@@ -46,11 +46,11 @@ static bool	ScalarConvertion::_isDoubleValid( std::string str )
 		i++;
 	while (str[i] != '\0')
 	{
-		if (!isdigit(str[i]))
+		if (str[i] != '.' && !isDigitCheck(str[i]))
 			return (false);
-		else if (str[i] == '.' && oneDot)
+		if (str[i] == '.' && oneDot)
 			return (false);
-		else if (str[i] == '.')
+		if (str[i] == '.')
 			oneDot = true;
 		i++;
 	}
@@ -59,7 +59,7 @@ static bool	ScalarConvertion::_isDoubleValid( std::string str )
 	return (true);
 }
 
-static bool	ScalarConvertion::_isFloatValid( std::string str )
+bool	ScalarConvertion::_isFloatValid( std::string str )
 {
 	size_t	i;
 	bool	oneDot;
@@ -72,20 +72,20 @@ static bool	ScalarConvertion::_isFloatValid( std::string str )
 		i++;
 	while (str[i + 1] != '\0')
 	{
-		if (&& !isdigit(str[i]))
+		if (str[i] != '.' && !isDigitCheck(str[i]))
 			return (false);
-		else if (str[i] == '.' && oneDot)
+		if (str[i] == '.' && oneDot)
 			return (false);
-		else if (str[i] == '.')
+		if (str[i] == '.')
 			oneDot = true;
 		i++;
 	}
-	if (str[str.length() - 1] != 'f' || !oneDot)
+	if (str[i] != 'f' || !oneDot)
 		return (false);
 	return (true);
 }
 
-static bool	ScalarConvertion::_isNumericValid( std::string str )
+bool	ScalarConvertion::_isIntValid( std::string str )
 {
 	size_t	i;
 
@@ -96,14 +96,14 @@ static bool	ScalarConvertion::_isNumericValid( std::string str )
 		i++;
 	while (str[i] != '\0')
 	{
-		if (!_isdigit(str[i]))
+		if (!isDigitCheck(str[i]))
 			return (false);
 		i++;
 	}
 	return (true);
 }
 
-static bool	ScalarConvertion::_isPseudoLiteral( std::string str )
+bool	ScalarConvertion::_isPseudoLiteral( std::string str )
 {
 	if (str == "+inf" || str == "-inf"|| str == "nan" || str == "+inff"
 		|| str == "-inff" || str == "nanf")

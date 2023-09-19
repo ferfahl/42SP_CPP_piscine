@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScalarConvertionConvert.cpp                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/18 21:22:06 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/19 17:34:22 by feralves         ###   ########.fr       */
+/*   Created: 2023/09/19 16:05:04 by feralves          #+#    #+#             */
+/*   Updated: 2023/09/19 18:00:48 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConvertion.hpp"
 
-int	wrongArgs(void)
+std::string	ScalarConvertion::_convertFloatPseudo( std::string str )
 {
-	std::cout << "Wrong number of Arguments" << std::endl;
-	std::cout << "Expected ./converter <argument>" << std::endl;
-	return (false);
+	if (str == "nan" || str == "+inf" || str == "-inf")
+		str.append("f");
+	return (str);
 }
 
-int	main(int argc, char *argv[])
+std::string	ScalarConvertion::_convertDoublePseudo( std::string str )
 {
-	if (argc != 2)
-		return (wrongArgs());
-	
-	
-	try {
-		ScalarConvertion::convert(argv[1]);
-	}
-	catch(const std::exception& e) {
-		std::cerr << e.what() << std::endl;
-		return (false);
-	}
-	return (0);
+	if (str == "nanf")
+		str = "nan";
+	else if (str == "+inff")
+		str = "+inf";
+	else if (str == "-inff")
+		str = "-inf";
+	return (str);
 }

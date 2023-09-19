@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 23:06:23 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/12 00:07:45 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/19 19:30:41 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ class Bureaucrat;
 class Form
 {
 	private:
-		std::string	_name;
-		bool		_signed;
-		int const	_gradeSign;
-		int const	_gradeExecute;
-		int			_checkGrade(int const grade);
+		std::string const	_name;
+		bool			_signed;
+		int const		_gradeSign;
+		int const		_gradeExecute;
+		int				_checkGrade(int const grade);
 	public:
 		Form();
 		Form(std::string name, int gradeSign, int gradeExecute);
@@ -35,9 +35,7 @@ class Form
 		std::string	getName() const;
 		bool		getSigned() const;
 		int			getGradeSign() const;
-		void		setGradeSign(int const grade);
 		int			getGradeExecute() const;
-		void		setGradeExecute(int const grade);
 		void		beSigned(Bureaucrat &vorgon);
 
 		class GradeTooHighException : public std::exception {

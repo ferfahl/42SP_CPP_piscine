@@ -6,14 +6,14 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 21:22:15 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/18 23:12:37 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/19 17:34:57 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConversion.hpp"
+#include "ScalarConvertion.hpp"
 
 
-ScalarConvertion::ScalarConvertion() : _name("Vogon"), _grade(75)
+ScalarConvertion::ScalarConvertion()
 {
 	std::cout << "ScalarConvertion default constructor called" << std::endl;
 	return ;
@@ -21,8 +21,8 @@ ScalarConvertion::ScalarConvertion() : _name("Vogon"), _grade(75)
 
 ScalarConvertion::ScalarConvertion(const ScalarConvertion& copy)
 {
-	std::cout << "ScalarConvertion, copy constructor called" << std::endl;
 	(void)copy;
+	std::cout << "ScalarConvertion, copy constructor called" << std::endl;
 	return ;
 }
 
@@ -34,37 +34,12 @@ ScalarConvertion::~ScalarConvertion()
 
 ScalarConvertion &ScalarConvertion::operator=(ScalarConvertion const &copy)
 {
+	(void)copy;
 	std::cout << "ScalarConvertion, copy assignment operator called" << std::endl;
 	return (*this);
 }
 
-static void	ScalarConvertion::_convertChar( const std::string &str )
-{
-	//
-}
-
-static void	ScalarConvertion::_convertInt( const std::string  &str )
-{
-	//
-}
-
-static void	ScalarConvertion::_convertFloat( const std::string&str )
-{
-	//
-}
-
-static void	ScalarConvertion::_convertDouble( const std::string&str )
-{
-	//
-}
-
-static void	ScalarConvertion::_printPseudo( const std::string&str )
-{
-	//
-}
-
-
-int	ScalarConvertion::_getInputType( srd::string value )
+int	ScalarConvertion::_getInputType( std::string value )
 {
 	if (_isDoubleValid(value))
 		return (DOUBLE);
@@ -84,29 +59,29 @@ void	ScalarConvertion::convert( std::string value )
 {
 	int	type;
 	
-	type = _getInputType(literal);
+	type = _getInputType(value);
 	switch (type)
 	{
 	case PSEUDO_LITERAL:
-		_printPseudo(literal);
+		_printPseudo(value);
 		break;
 	case CHAR:
-		_convertChar(literal);
+		_printChar(value);
 		break;
 	case INT:
-		_convertInt(literal);
+		_printInt(value);
 		break;
 	case FLOAT:
-		_convertFloat(literal);
+		_printFloat(value);
 		break;
 	case DOUBLE:
-		_convertDouble(literal);
+		_printDouble(value);
 		break;
 	default:
-		throw Validation::NotValidType();
+		throw ScalarConvertion::NotValidType();
 		break;
 	}
-	_printConversions();
+	// _printConvertions();
 }
 
 const char* ScalarConvertion::NotValidType::what() const throw() {
