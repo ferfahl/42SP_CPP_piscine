@@ -1,64 +1,99 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/20 18:49:56 by feralves          #+#    #+#             */
+/*   Updated: 2023/09/20 19:22:57 by feralves         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <iostream>
-#include <cstdlib>
+#include "Base.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
+#include <unistd.h>
 
-class Base { public: virtual ~Base(void){ return ; } };
-class A : public Base {};
-class B : public Base {};
-class C : public Base {};
+//These four classes don’t have to be designed in the Orthodox Canonical Form.
 
-Base *generate(void) {
-	Base *class_pointer;
-	std::string	classes [] = {"A", "B", "C"};
-	
-	srand (time(NULL));
-	int random = rand() % 3;
+Base*	generate(void)
+{
+	std::cout << "-------- Generating a random Base --------" << std::endl;
+	int random_number;
 
-	std::cout << "\nRandom class >>>>>>>>> " << classes[random] << std::endl;
-	if (random == 0)
-		class_pointer = new A();
-	if (random == 1)
-		class_pointer = new B();
-	if (random == 2)
-		class_pointer = new C();
-
-	return class_pointer;
+	std::srand((unsigned int)time(NULL));
+	random_number = rand() % 100;
+	if (random_number < 33)
+		return (new A);
+	else if (random_number < 66)
+		return (new B);
+	else
+		return (new C);
 }
 
-void identify(Base* p) {
+void	identify(Base* p)
+{
+	std::cout << "------ Identifying Base by pointer -------" << std::endl;
 	if (dynamic_cast<A*>(p))
-		std::cout << "Pointer class >>>>>>>> A" << std::endl;
+		std::cout << "The class indentified by pointer is A" << std::endl;
 	else if (dynamic_cast<B*>(p))
-		std::cout << "Pointer class >>>>>>>> B" << std::endl;
+		std::cout << "The class indentified by pointer is B" << std::endl;
 	else if (dynamic_cast<C*>(p))
-		std::cout << "Pointer class >>>>>>>> C" << std::endl;
+		std::cout << "The class indentified by pointer is C" << std::endl;
+	else
+		std::cout << "This class is not valid" << std::endl;
 }
 
-void identify(Base& p) {
-	try {
-		A& a = dynamic_cast<A&>(p);
-		std::cout << "Reference class >>>>>> A" << std::endl;
-		(void)a;
+void	identify(Base& p)
+{
+	std::cout << "----- Identifying Base by reference ------" << std::endl;
+	try
+	{
+		A a = dynamic_cast<A&>(p);
+		std::cout <<  "The class indentified by reference is A" << std::endl;
+		std::cout << "---------- Destructor for class ----------" << std::endl;
+		return ;
 	}
-	catch (std::exception &e){std::cout << "Class A " << e.what() << std::endl;}
-	try {
-		B& b = dynamic_cast<B&>(p);
-		std::cout << "Reference class >>>>>> B" << std::endl;
-		(void)b;
+	catch(...) {}
+	try
+	{
+		B b = dynamic_cast<B&>(p);
+		std::cout <<  "The class indentified by reference is B" << std::endl;
+		std::cout << "---------- Destructor for class ----------" << std::endl;
+		return ;
 	}
-	catch (std::exception &e) {std::cout << "Class B " << e.what() << std::endl;}
-	try {
-		C& c = dynamic_cast<C&>(p);
-		std::cout << "Reference class >>>>>> C" << std::endl;
-		(void)c;
+	catch(...) {}
+	try
+	{
+		C c = dynamic_cast<C&>(p);
+		std::cout <<  "The class indentified by reference is C" << std::endl;
+		std::cout << "---------- Destructor for class ----------" << std::endl;
+		return ;
+	}	
+	catch (...) 
+	{
+		std::cout << "This class is not valid\n";
 	}
-	catch (std::exception &e) {std::cout << "Class C " << e.what() << std::endl;}
 }
 
-int main(void) {
-	Base *random_class = generate();
-	identify(random_class);
-	Base &class_reference = *random_class;
-	identify(class_reference);
-	delete random_class;
+int	main()
+{
+	Base *ptr;
+
+	for (int i = 0; i < 10; i++) {
+		std::cout << "\n------------ Test number " << i << " ---------------" << std::endl;
+		ptr = generate();
+		identify(ptr);
+		identify(*ptr);
+		std::cout << "--- Destructor for Base & random class ---" << std::endl;
+		delete ptr;
+		std::cout << std::endl;
+		sleep(1);
+	}
+	std::cout << "\n-------------- Invalid test --------------" << std::endl;
+	Base newBase;
+	identify(&newBase);
+	identify(newBase);
 }
