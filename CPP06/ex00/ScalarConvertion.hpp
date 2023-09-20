@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 21:22:26 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/20 16:17:23 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/20 17:02:31 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <limits>
 # include <cmath>
 # include <iomanip>
+
+# define QUOTE '\''
 
 enum e_type
 {
@@ -40,6 +42,8 @@ class	ScalarConvertion
 		static bool			_isFloatValid( std::string str );
 		static bool			_isIntValid( std::string str );
 		static bool			_isPseudoLiteral( std::string str );
+		static void			_validateInt( const double d );
+		static void			_validateFloat( const double d );
 		//convert str
 		static std::string	_convertFloatPseudo( std::string str );
 		static std::string	_convertDoublePseudo( std::string str );
@@ -50,6 +54,7 @@ class	ScalarConvertion
 		//print functs
 		static void			_printPseudo( std::string str );
 		static void			_printConversions( std::string c, int i, float f, double d, int precision );
+		static void			_printConversions( std::string c, std::string i, float f, double d, int precision );
 	public:
 		ScalarConvertion();
 		ScalarConvertion( ScalarConvertion const & src );
@@ -58,7 +63,19 @@ class	ScalarConvertion
 		static void	convert( std::string arg);
 		class	NotValidType : public std::exception
 		{
-			virtual const char* what(void) const throw();
+			public:
+				virtual const char* what(void) const throw();
+		};
+		class	IntOverflow : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+		static void _validateFloat(void);
+		class	FloatOverflow : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
 		};
 };
 

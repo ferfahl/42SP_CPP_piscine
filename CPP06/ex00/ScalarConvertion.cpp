@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 21:22:15 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/20 16:17:10 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/20 17:03:06 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,12 @@ int	ScalarConvertion::_getInputType( std::string value )
 
 void	ScalarConvertion::convert( std::string value )
 {
-	int	type;
+	int		type;
+	double	check;
+	std::stringstream	ss;
+
+	ss << value;
+	ss >> check;
 	
 	type = _getInputType(value);
 	switch (type)
@@ -69,9 +74,11 @@ void	ScalarConvertion::convert( std::string value )
 		_convertChar(value);
 		break;
 	case INT:
+		_validateInt(check);
 		_convertInt(value);
 		break;
 	case FLOAT:
+		_validateFloat(check);
 		_convertFloat(value);
 		break;
 	case DOUBLE:
@@ -88,4 +95,10 @@ const char* ScalarConvertion::NotValidType::what() const throw() {
 	return ("Value is not a required type from the subject");
 }
 
+const char* ScalarConvertion::IntOverflow::what() const throw() {
+	return ("Value exceeds the maximum or minimum integer limits");
+}
 
+const char* ScalarConvertion::FloatOverflow::what() const throw() {
+	return ("Value exceeds the maximum or minimum float limits");
+}
