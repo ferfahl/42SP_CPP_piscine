@@ -6,11 +6,23 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 16:05:04 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/20 16:58:39 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/20 18:01:41 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConvertion.hpp"
+
+std::string	validChar( const char c )
+{
+	std::string	final;
+	std::string	copy;
+
+	copy = c;
+	final = "'";
+	final.append(copy);
+	final.append("'");
+	return (final);
+}
 
 std::string	ScalarConvertion::_convertFloatPseudo( std::string str )
 {
@@ -60,8 +72,8 @@ void	ScalarConvertion::_convertInt( const std::string  &str )
 
 	char c = static_cast<char>(i);
 	if (isCharPrintable(c))
-		convert = c;
-	else if (i <= 0 || i > 128)
+		convert = validChar(c);
+	else if (i < 0 || i > 128)
 		convert = "impossible";
 	else
 		convert = "Non displayable";
@@ -87,6 +99,8 @@ int	getPrecision( const std::string&str )
 			j++;
 		i++;
 	}
+	if (j == 0)
+		j = 1;
 	return (j);
 }
 
@@ -105,13 +119,13 @@ void	ScalarConvertion::_convertFloat( const std::string&str )
 	int i = static_cast<int>(f);
 	char c = static_cast<char>(i);
 	if (isCharPrintable(c))
-		convert = c;
-	else if (i <= 0 || i > 128)
+		convert = validChar(c);
+	else if (i < 0 || i > 128)
 		convert = "impossible";
 	else
 		convert = "Non displayable";
 	double d = static_cast<double>(f);
-	if (f == INFINITY || f == -INFINITY)
+	if (checkIntLimit(d))
 			_printConversions(convert, convert, f, d, precision);
 	else
 		_printConversions(convert, i, f, d, precision);
@@ -136,12 +150,16 @@ void	ScalarConvertion::_convertDouble( const std::string&str )
 	max = std::numeric_limits<double>::max();
 
 	if (isCharPrintable(c))
-		convert = c;
-	else if (i <= 0 || i > 128)
+		convert = validChar(c);
+	else if (i < 0 || i > 128)
 		convert = "impossible";
 	else
 		convert = "Non displayable";
-	if (d == INFINITY || d == -INFINITY || (d == max || d == -max ))
+	if (d == max || d == -max)
+		_printConversions(convert);
+	else if (checkFloatLimit(d))
+		_printConversions(convert, convert, convert, d, precision);
+	else if (checkIntLimit(d))
 		_printConversions(convert, convert, f, d, precision);
 	else
 		_printConversions(convert, i, f, d, precision);

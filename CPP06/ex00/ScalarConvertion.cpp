@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 21:22:15 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/20 17:03:06 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/20 17:04:51 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,6 @@ void	ScalarConvertion::convert( std::string value )
 		throw ScalarConvertion::NotValidType();
 		break;
 	}
-	// _printConvertions();
 }
 
 const char* ScalarConvertion::NotValidType::what() const throw() {

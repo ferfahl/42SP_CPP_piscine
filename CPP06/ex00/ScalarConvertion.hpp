@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 21:22:26 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/20 17:02:31 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/20 17:53:07 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ class	ScalarConvertion
 		static void			_printPseudo( std::string str );
 		static void			_printConversions( std::string c, int i, float f, double d, int precision );
 		static void			_printConversions( std::string c, std::string i, float f, double d, int precision );
+		static void			_printConversions( std::string c, std::string i, std::string f, double d, int precision );
+		static void			_printConversions( std::string c );
 	public:
 		ScalarConvertion();
 		ScalarConvertion( ScalarConvertion const & src );
@@ -78,5 +80,8 @@ class	ScalarConvertion
 				virtual const char* what() const throw();
 		};
 };
+
+bool	checkIntLimit( double d );
+bool	checkFloatLimit( double d );
 
 #endif

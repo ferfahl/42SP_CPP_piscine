@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 23:12:04 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/20 17:03:42 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/20 17:17:04 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ void	ScalarConvertion::_validateInt( const double d )
 
 bool	checkFloatLimit( double d )
 {
-	return (d > (double)(std::numeric_limits<float>::max())
-		|| d < (double)(std::numeric_limits<float>::min()));
+	float max = std::numeric_limits<float>::max();
+
+	return (d > (double)(max) || d < -(double)(max) - 1.0);
 }
 
 void	ScalarConvertion::_validateFloat( const double d )
