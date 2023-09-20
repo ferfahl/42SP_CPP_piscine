@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 21:22:26 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/20 17:53:07 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/20 18:13:33 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,10 @@ enum e_type
 class	ScalarConvertion
 {
 	private:
+		ScalarConvertion();
+		ScalarConvertion( ScalarConvertion const & src );
+		~ScalarConvertion();
+		ScalarConvertion		&operator=( ScalarConvertion const & rhs );
 		//validate str
 		static int			_getInputType( std::string value );
 		static bool			_isCharValid( std::string str );
@@ -58,10 +62,6 @@ class	ScalarConvertion
 		static void			_printConversions( std::string c, std::string i, std::string f, double d, int precision );
 		static void			_printConversions( std::string c );
 	public:
-		ScalarConvertion();
-		ScalarConvertion( ScalarConvertion const & src );
-		~ScalarConvertion();
-		ScalarConvertion		&operator=( ScalarConvertion const & rhs );
 		static void	convert( std::string arg);
 		class	NotValidType : public std::exception
 		{
