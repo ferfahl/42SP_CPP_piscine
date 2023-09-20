@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 21:22:15 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/19 17:34:57 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/20 16:17:10 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,16 +66,16 @@ void	ScalarConvertion::convert( std::string value )
 		_printPseudo(value);
 		break;
 	case CHAR:
-		_printChar(value);
+		_convertChar(value);
 		break;
 	case INT:
-		_printInt(value);
+		_convertInt(value);
 		break;
 	case FLOAT:
-		_printFloat(value);
+		_convertFloat(value);
 		break;
 	case DOUBLE:
-		_printDouble(value);
+		_convertDouble(value);
 		break;
 	default:
 		throw ScalarConvertion::NotValidType();

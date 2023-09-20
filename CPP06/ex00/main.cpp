@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 21:22:06 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/19 17:34:22 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/20 15:09:54 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	wrongArgs(void)
 {
 	std::cout << "Wrong number of Arguments" << std::endl;
-	std::cout << "Expected ./converter <argument>" << std::endl;
+	std::cout << "Expected ./convert <argument>" << std::endl;
 	return (false);
 }
 

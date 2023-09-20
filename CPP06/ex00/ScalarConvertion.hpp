@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 21:22:26 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/19 17:48:47 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/20 16:17:23 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # include <exception>
 # include <string>
 # include <iostream>
+# include <sstream>
+# include <limits>
+# include <cmath>
+# include <iomanip>
 
 enum e_type
 {
@@ -39,12 +43,13 @@ class	ScalarConvertion
 		//convert str
 		static std::string	_convertFloatPseudo( std::string str );
 		static std::string	_convertDoublePseudo( std::string str );
+		static void			_convertChar( const std::string &str );
+		static void			_convertInt( const std::string &str );
+		static void			_convertFloat( const std::string &str );
+		static void			_convertDouble( const std::string &str );
 		//print functs
 		static void			_printPseudo( std::string str );
-		static void			_printChar( const std::string &str );
-		static void			_printInt( const std::string &str );
-		static void			_printFloat( const std::string &str );
-		static void			_printDouble( const std::string &str );
+		static void			_printConversions( std::string c, int i, float f, double d, int precision );
 	public:
 		ScalarConvertion();
 		ScalarConvertion( ScalarConvertion const & src );
