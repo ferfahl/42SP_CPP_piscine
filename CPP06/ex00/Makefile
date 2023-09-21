@@ -38,12 +38,12 @@ re:			fclean all
 run:
 	@make re
 	@echo "\n\n"
-	@echo ${BPurple}"No argument test------------------------------------\033[0m"
+	@echo "No argument test------------------------------------\033[0m"
 	./convert  
 	@echo "\n\n" 
 	
-	@echo ${BPurple}"Invalid inputs tests--------------------------------" 
-	@echo "\033[0m" 
+	@echo "Invalid inputs tests--------------------------------" 
+	@echo 
 	./convert 🌊 
 	./convert 🌊🌊
 	./convert teste
@@ -69,8 +69,8 @@ run:
 	./convert "   "
 	@echo "\n\n"
 	
-	@echo ${BPurple}"Limits tests----------------------------------------"
-	@echo "\033[0m"
+	@echo "Limits tests----------------------------------------"
+	@echo
 	./convert 2147483647
 	./convert -2147483648
 	./convert 2147483648
@@ -85,8 +85,8 @@ run:
 	./convert -179769313486239570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858399.9
 	@echo "\n\n"
 	
-	@echo ${BPurple}"Char tests----------------------------------------"
-	@echo "\033[0m"
+	@echo "Char tests----------------------------------------"
+	@echo
 	./convert 'A'
 	./convert 'l'
 	./convert 'e'
@@ -98,8 +98,8 @@ run:
 	@echo "\n\n"
 	
 		
-	@echo ${BPurple}"Integer tests----------------------------------------"
-	@echo "\033[0m"
+	@echo "Integer tests----------------------------------------"
+	@echo
 	./convert 0
 	./convert 1
 	./convert -1
@@ -109,8 +109,8 @@ run:
 	@echo "\n\n"
 	
 		
-	@echo ${BPurple}"Float tests----------------------------------------"
-	@echo "\033[0m"
+	@echo "Float tests----------------------------------------"
+	@echo
 	./convert 0.0f
 	./convert 1.1f
 	./convert -1.1f
@@ -120,8 +120,8 @@ run:
 	@echo "\n\n"
 
 		
-	@echo ${BPurple}"Double tests----------------------------------------"
-	@echo "\033[0m"
+	@echo "Double tests----------------------------------------"
+	@echo
 	./convert 0.0
 	./convert 1.1
 	./convert -1.1
@@ -132,8 +132,8 @@ run:
 
 
 
-	@echo ${BPurple}"Pseudo Literal tests----------------------------------------"
-	@echo "\033[0m"
+	@echo "Pseudo Literal tests----------------------------------------"
+	@echo
 	./convert nan
 	./convert nanf
 	./convert +inf
@@ -145,7 +145,7 @@ run:
 
 val:
 	@make re
-	valgrind ./$(NAME)
+	valgrind ./$(NAME) $(ARGS)
 
 
 .PHONY: all clean fclean re 
