@@ -1,4 +1,4 @@
-NAME	=	iter
+NAME	=	whatever
 
 SRCS	=	main.cpp
 
@@ -10,7 +10,7 @@ CFLAGS	=	-Wall -Wextra -Werror -std=c++98 -g
 
 VPATH	=	./
 
-HEADER	=	iter.hpp
+HEADER	=	whatever.hpp
 
 INCLUDE	=	-I ./ -I ./includes
 
