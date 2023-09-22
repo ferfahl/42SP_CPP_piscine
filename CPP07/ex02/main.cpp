@@ -1,10 +1,14 @@
+#include "Array.hpp"
+#include <stdlib.h>
+#include <time.h>
 #include <iostream>
-#include <Array.hpp>
+#include <string>
 
 #define MAX_VAL 750
 
-int	main(int, char**)
+int main(int, char**)
 {
+	std::cout << "\n--------------- Main tests ---------------" << std::endl;
 	Array<int>	numbers(MAX_VAL);
 	int*		mirror = new int[MAX_VAL];
 	srand(time(NULL));
@@ -50,5 +54,65 @@ int	main(int, char**)
 		numbers[i] = rand();
 	}
 	delete [] mirror;//
-	return 0;
+
+	std::cout << "\n-------------- Other tests ---------------" << std::endl;
+
+	std::cout << "Default Constructor" << std::endl;
+	Array<int> intArray;
+	Array<std::string> stringArray;
+
+	std::cout << "\tintArray.size() = " << intArray.size() << std::endl;
+	std::cout << "\tstringArray.size() = " << stringArray.size() << std::endl << std::endl;
+
+	std::cout << "\nInt passed to constructor" << std::endl;
+	Array<int> intArray1(7);
+
+	for (unsigned int i = 0; i < intArray1.size(); i++)
+	{
+		intArray1[i] = i;
+	}
+	std::cout << "\t[";
+	for (unsigned int i = 0; i < intArray1.size(); i++)
+	{
+		std::cout << intArray1[i] << " ";
+	}
+	std::cout << "]" << std::endl;
+	std::cout << "\tintArray1.size() = " << intArray1.size() << std::endl;
+
+	std::cout << "\nArray of strings" << std::endl;
+	Array<std::string> stringArray1(3);
+
+	for (unsigned int i = 0; i < stringArray1.size(); i++)
+	{
+		stringArray1[i] = "string";
+	}
+	std::cout << "\t[";
+	for (unsigned int i = 0; i < stringArray1.size(); i++)
+	{
+		std::cout << stringArray1[i] << " ";
+	}
+	std::cout << "]" << std::endl;
+	std::cout << "\tstringArray1.size() = " << stringArray1.size() << std::endl;
+	
+	std::cout << "\nErrors tests" << std::endl;
+	std::cout << "\tnegative value index" << std::endl ;
+	try
+	{
+		intArray1[-1] = 42;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << "\tout of range value index" << std::endl;
+	try
+	{
+		intArray[55] = 42;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	return (0);
 }
