@@ -6,70 +6,28 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 20:51:47 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/22 00:50:33 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/22 15:41:33 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "iter.hpp"
-#include <string>
-#include <iostream>
 
-template< typename T>
-void	print_it(T &data)
+int	main( void )
 {
-	std::cout << data << std::endl;
-}
+	std::cout << "\n----------------- Printing ---------------" << std::endl;
+	char		alpha[11] = {'A', 'a', 'B', 'b', 'C', 'c', 'D', 'd', 'E', 'e', 'F'};
+	std::string	tests[3] = {"River Song", "Amy Pond", "Rory Pond"};
+	int			nbrs[7] = {1, 2, 3, 5, 7, 11, 13};
 
-template< typename T>
-void	increase_it(T &data)
-{
-	data++;
-}
+	std::cout << "------------------ Char ------------------" << std::endl;
+	::iter(alpha, 11, printing);
+	std::cout << "----------------- String -----------------" << std::endl;
+	::iter(tests, 3, printing);
+	std::cout << "------------------ Ints ------------------" << std::endl;
+	::iter(nbrs, 7, printing);
+	::iter(nbrs, 7, plusTen);
+	std::cout << "-------------- Ints changed --------------" << std::endl;
+	::iter(nbrs, 7, printing);
 
-int main( void )
-{
-	std::cout << "Testing int array" << std::endl;
-	int	teste[4];
-
-	teste[0] = 1;
-	teste[1] = 2;
-	teste[2] = 3;
-	teste[3] = 4;
-
-	::iter(teste, 4, &print_it<int>);
-
-	std::cout << "Testing char array" << std::endl;
-	char	teste1[4];
-
-	teste1[0] = 42;
-	teste1[1] = 43;
-	teste1[2] = 44;
-	teste1[3] = 45;
-
-	::iter(teste1, 4, &print_it<char>);
-
-	std::cout << "Testing float array" << std::endl;
-	float	teste2[4];
-
-	teste2[0] = 42.5f;
-	teste2[1] = 43.5f;
-	teste2[2] = 44.5f;
-	teste2[3] = 45.5f;
-
-	::iter(teste2, 4, &print_it<float>);
-
-	std::cout << "Testing increasing array" << std::endl;
-	float	teste3[4];
-
-	teste3[0] = 42.5f;
-	teste3[1] = 43.5f;
-	teste3[2] = 44.5f;
-	teste3[3] = 45.5f;
-
-	::iter(teste3, 4, &print_it<float>);
-	::iter(teste3, 4, &increase_it<float>);
-	std::cout << "---------------------------" << std::endl;
-	::iter(teste3, 4, &print_it<float>);
-	return 0;
+	return (0);
 }
