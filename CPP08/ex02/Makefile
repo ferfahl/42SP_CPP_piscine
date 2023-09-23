@@ -1,4 +1,4 @@
-NAME	=	array
+NAME	=	mutants
 
 SRCS	=	main.cpp
 
@@ -10,7 +10,7 @@ CFLAGS	=	-Wall -Wextra -Werror -std=c++98 -g
 
 VPATH	=	./
 
-HEADER	=	Array.hpp Array.tpp
+HEADER	=	MutantStack.hpp
 
 INCLUDE	=	-I ./ -I ./includes
 

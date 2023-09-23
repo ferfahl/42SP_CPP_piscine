@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 21:15:23 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/22 22:44:02 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/22 23:07:39 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 # define MUTANTSTACK_HPP
 
 # include <stack>
+# include <vector>
 # include <iterator>
 # include <iostream>
+#include <list>
+#include <algorithm>
 
 template <typename T, typename Container=std::deque<T> >
 class MutantStack : public std::stack<T, Container>
