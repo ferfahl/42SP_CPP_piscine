@@ -33,4 +33,13 @@ fclean:		clean
 
 re:			fclean all
 
+run:
+	@make re
+	./$(NAME) text.txt
+
+val:
+	@make re
+	valgrind ./$(NAME) text.txt
+
+
 .PHONY: all clean fclean re 
