@@ -1,4 +1,4 @@
-NAME	=	array
+NAME	=	latinha
 
 SRCS	=	main.cpp Span.cpp
 
