@@ -6,11 +6,20 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 14:35:32 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/25 16:30:47 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/25 17:57:52 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+
+int	jacobsthal(int n)
+{
+	if (n == 0)
+		return (0);
+	if (n == 1)
+		return (1);
+	return (jacobsthal(n - 1) + 2 * jacobsthal(n - 2));
+}
 
 bool	parseSequence( char **input )
 {
@@ -29,10 +38,12 @@ bool	parseSequence( char **input )
 				return (false);
 		seenNumbers.push_back(num);
 	}
+	// std::cout << "Before : ";
+	// printSequence(seenNumbers);
 	return (true);
 }
 
-int main(int argc, char *argv[])
+int	main( int argc, char *argv[] )
 {
 	if (argc <= 2)
 	{
@@ -45,16 +56,16 @@ int main(int argc, char *argv[])
 		std::cout << "Error: Only unique integer numbers are allowed." << std::endl;
 		return (1);
 	}
-	// try
-	// {
-	// 	PmergeMe p;
+	try
+	{
+		PmergeMe	p;
 
-	// 	p.run(argv[1]);
-	// }
-	// catch (std::exception const& e)
-	// {
-	// 	std::cout << e.what() << std::endl;
-	// 	return (1);
-	// }
+		p.run(argc, argv);
+	}
+	catch (std::exception const& e)
+	{
+		std::cout << e.what() << std::endl;
+		return (1);
+	}
 	return (0);
 }
