@@ -6,13 +6,13 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 13:18:24 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/25 13:43:14 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/25 16:05:54 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
-/* Constructors / Destructors */
+/* Constructors / Destructors / Overload operator = -> Canonical form */
 
 RPN::RPN() : _stack(), _divByZero(false)
 { }
