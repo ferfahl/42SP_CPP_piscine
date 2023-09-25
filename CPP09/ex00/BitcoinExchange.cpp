@@ -6,13 +6,13 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 12:19:21 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/25 12:55:26 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/25 16:06:02 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-/* Constructors / Destructors */
+/* Constructors / Destructors / Overload operator = -> Canonical form */
 
 BitcoinExchange::BitcoinExchange( void ) : _inputFile("input.txt"), _dataFile("data.csv")
 { }
@@ -29,8 +29,6 @@ BitcoinExchange::BitcoinExchange( BitcoinExchange const& copy )
 {
 	*this = copy;
 }
-
-/* Operator overload */
 
 BitcoinExchange& BitcoinExchange::operator=( BitcoinExchange const & copy )
 {
