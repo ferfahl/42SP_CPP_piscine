@@ -35,7 +35,7 @@ re:			fclean all
 
 run:
 	@make re
-	./$(NAME) `shuf -i 1-10000 -n 3000 | tr "\n" " "`
+	./$(NAME) `shuf -i 1-10000 -n 300 | tr "\n" " "`
 
 val:
 	@make re

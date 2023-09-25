@@ -6,7 +6,7 @@
 /*   By: feralves <feralves@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 14:36:24 by feralves          #+#    #+#             */
-/*   Updated: 2023/09/25 17:43:58 by feralves         ###   ########.fr       */
+/*   Updated: 2023/09/25 19:38:01 by feralves         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,39 +24,26 @@
 class	PmergeMe
 {
 	private:
-		float		_time;
-		static void	_sort_pairs( std::list<std::pair<int, int> > &list, size_t size );
-		static void	_sort_pairs( std::vector<std::pair<int, int> > &vector, size_t size );
+		void					_list( int quantity, char **input );
+		static std::list<int>	_sort( std::list<int> &list );
+		static void				_sortPairs( std::list<std::pair<int, int> > &list, size_t size );
 
+		void					_vector( int quantity, char **input );
+		static std::vector<int>	_sort( std::vector<int> &vector );
+		static void				_sortPairs( std::vector<std::pair<int, int> > &vector, size_t size );
 	public:
 		PmergeMe();
 		PmergeMe( PmergeMe const & copy );
 		~PmergeMe();
 		PmergeMe &		operator=( PmergeMe const & copy );
 
-		static std::list<int>	sort( std::list<int> &list );
-		static std::vector<int>	sort( std::vector<int> &vector );
-		bool					list( int quantity, char **input );
-		bool					vector( int quantity, char **input );
-		void					run( int quantity, char **input );
-
-		class	ErrorInList : public std::exception
-		{
-			public:
-				virtual const char* what() const throw();
-		};
-		class	ErrorInVector : public std::exception
-		{
-			public:
-				virtual const char* what() const throw();
-		};
+		void			run( int quantity, char **input );
 };
 
-int						jacobsthal( int n );
-std::ostream &			operator<<( std::ostream & output, PmergeMe const & value );
+int		jacobsthal( int n );
 
 template<typename T>
-void	printSequence(const T& sequence)
+void	printSequence( const T& sequence )
 {
 	typename T::const_iterator it;
 
@@ -68,19 +55,22 @@ void	printSequence(const T& sequence)
 }
 
 template <typename T>
-T	insertionSequence(size_t size)
+T		insertionSequence( size_t size )
 {
-	T sequence;
+	T	sequence;
+
 	if (size < 1)
 		return (sequence);
 	int jacobsthal_iterator = 2;
 	int next = jacobsthal(jacobsthal_iterator++);
 	sequence.push_back(next);
-	while (sequence.size() < size) {
+	while (sequence.size() < size)
+	{
 		next = jacobsthal(jacobsthal_iterator++);
 		if (next >= static_cast<int>(size))
 			next = size;
-		while (sequence.size() < size && next > 0) {
+		while (sequence.size() < size && next > 0)
+		{
 			sequence.push_back(next);
 			if (std::find(sequence.begin(), sequence.end(), next - 1) != sequence.end())
 				break ;
