@@ -19,7 +19,7 @@ class ASpell {
 
 		std::string		getName() const;
 		std::string		getEffects() const;
-		virtual ASpell	*clone() const = 0;
+		// virtual ASpell	*clone() const = 0;
 
 		void			attack(ATarget const& target) const;
 };

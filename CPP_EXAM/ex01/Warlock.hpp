@@ -10,7 +10,7 @@ class Warlock {
 	private:
 		std::string			_name;
 		std::string			_title;
-		std::vector<class ASpell>	_list;
+		std::vector<ASpell>	_list;
 		Warlock();
 	public:
 		Warlock(std::string name, std::string title);

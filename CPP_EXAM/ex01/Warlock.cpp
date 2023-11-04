@@ -53,6 +53,10 @@ void	Warlock::forgetSpell(std::string spellName) {
 void	Warlock::launchSpell(std::string spellName, ATarget &target) {
 	for (int i = 0; i < this->_list.size(); i++) {
 		if (this->_list[i].getName() == spellName)
+		{
 			target.getHitBySpell(this->_list[i]);
+			return ;
+		}
 	}
+	std::cout << this->_name << ": Can't do the spell!" << std::endl;
 }
