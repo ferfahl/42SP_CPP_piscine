@@ -3,14 +3,15 @@
 
 # include <iostream>
 # include <vector>
+
 # include "ASpell.hpp"
 # include "ATarget.hpp"
 
 class Warlock {
 	private:
-		std::string			_name;
-		std::string			_title;
-		std::vector<ASpell>	_list;
+		std::string				_name;
+		std::string				_title;
+		std::vector<ASpell*>	_list;
 		Warlock();
 	public:
 		Warlock(std::string name, std::string title);
