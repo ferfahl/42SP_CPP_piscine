@@ -12,3 +12,9 @@ second reason why you must use a vector of pointers.
 but it didn't work. I think it's because the abstract class type is not a real 
 type, so it can't be stored in a vector container.)
 
+-> Did it with vector!!
+
+You can use a pointer to the abstract class type as the vector element type,
+and then when you want to reference something from the class (like checking the
+name for one), you can use the pointer to access the class, the difference is 
+basically the struct or struct* way of accessing.
