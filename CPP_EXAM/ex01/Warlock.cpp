@@ -31,7 +31,7 @@ void		Warlock::introduce() {
 
 // learnSpell, takes a pointer to ASpell, that makes the Warlock learn a spell
 void	Warlock::learnSpell(ASpell *spell) {
-	for (int i = 0; i < this->_list.size(); i++) {
+	for (size_t i = 0; i < this->_list.size(); i++) {
 		if (this->_list[i]->getName() == spell->getName())
 			return ;
 	}
@@ -41,7 +41,7 @@ void	Warlock::learnSpell(ASpell *spell) {
 // * forgetSpell, takes a string corresponding a to a spell's name, and makes the
 //   Warlock forget it. If it's not a known spell, does nothing.
 void	Warlock::forgetSpell(std::string spellName) {
-	for (int i = 0; i < this->_list.size(); i++) {
+	for (size_t i = 0; i < this->_list.size(); i++) {
 		if (this->_list[i]->getName() == spellName)
 			this->_list.erase(this->_list.begin() + i);
 	}
@@ -51,7 +51,7 @@ void	Warlock::forgetSpell(std::string spellName) {
 //   launches the spell on the selected target. If it's not a known spell, does
 //   nothing.
 void	Warlock::launchSpell(std::string spellName, ATarget &target) {
-	for (int i = 0; i < this->_list.size(); i++) {
+	for (size_t i = 0; i < this->_list.size(); i++) {
 		if (this->_list[i]->getName() == spellName)
 		{
 			target.getHitBySpell(*this->_list[i]);

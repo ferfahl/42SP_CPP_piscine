@@ -5,7 +5,7 @@ Warlock::Warlock() {
 }
 
 Warlock::Warlock(std::string name, std::string title) : _name(name), _title(title) {
-	_list.begin();
+	_list = new SpellBook();
 	std::cout << this->_name << ": This looks like another boring day." << std::endl;
 }
 
@@ -31,32 +31,22 @@ void		Warlock::introduce() {
 
 // learnSpell, takes a pointer to ASpell, that makes the Warlock learn a spell
 void	Warlock::learnSpell(ASpell *spell) {
-	for (int i = 0; i < this->_list.size(); i++) {
-		if (this->_list[i]->getName() == spell->getName())
-			return ;
-	}
-	this->_list.push_back(spell->clone());
+	_list->learnSpell(spell);
 }
 
 // * forgetSpell, takes a string corresponding a to a spell's name, and makes the
 //   Warlock forget it. If it's not a known spell, does nothing.
 void	Warlock::forgetSpell(std::string spellName) {
-	for (int i = 0; i < this->_list.size(); i++) {
-		if (this->_list[i]->getName() == spellName)
-			this->_list.erase(this->_list.begin() + i);
-	}
+	_list->forgetSpell(spellName);
 }
 
 // * launchSpell, takes a string (a spell name) and a reference to ATarget, that
 //   launches the spell on the selected target. If it's not a known spell, does
 //   nothing.
 void	Warlock::launchSpell(std::string spellName, ATarget &target) {
-	for (int i = 0; i < this->_list.size(); i++) {
-		if (this->_list[i]->getName() == spellName)
-		{
-			target.getHitBySpell(*this->_list[i]);
-			return ;
-		}
+	if (_list->createSpell(spellName)) {
+		target.getHitBySpell(*_list->createSpell(spellName));
+		return ;
 	}
 	std::cout << this->_name << ": Can't do the spell!" << std::endl;
 }

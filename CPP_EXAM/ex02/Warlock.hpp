@@ -6,12 +6,15 @@
 
 # include "ASpell.hpp"
 # include "ATarget.hpp"
+# include "SpellBook.hpp"
+
+class SpellBook;
 
 class Warlock {
 	private:
 		std::string				_name;
 		std::string				_title;
-		std::vector<ASpell*>	_list;
+		SpellBook				*_list;
 		Warlock();
 	public:
 		Warlock(std::string name, std::string title);
